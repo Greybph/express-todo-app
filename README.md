@@ -9,5 +9,4 @@ Todo application with persisting data via MongoDB, built with Express JS
 3. MongoDB
 4. Mongoose
 5. EJS
-
-![image](https://user-images.githubusercontent.com/93285360/148135025-ca249b6d-7967-4962-95c4-64d9476cbb8d.png)
+![image](https://user-images.githubusercontent.com/93285360/148135164-51e3eb67-0f50-42ac-a26d-3751322bcebe.png)
