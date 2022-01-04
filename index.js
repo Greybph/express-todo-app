@@ -11,14 +11,17 @@ const todoDoneController = require('./controllers/todoDone')
 const completedPageController = require('./controllers/completedPage')
 const deleteCompletedTodo = require('./controllers/deleteCompletedTodo')
 
+const dbConnect = require('./utils/dbConnect')
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
-mongoose.connect(process.env.MONGODB_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-})
+// mongoose.connect(process.env.MONGODB_URI, {
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// })
+dbConnect
 
 app.get('/', homePageController)
 
