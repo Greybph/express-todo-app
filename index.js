@@ -5,6 +5,11 @@ const Todos = require('./models/Todos')
 const Completed = require('./models/Completed')
 require('dotenv').config()
 const PORT = process.env.PORT || 4000
+const homePageController = require('./controllers/homePage')
+const createTodoController = require('./controllers/createTodo')
+const todoDoneController = require('./controllers/todoDone')
+const completedPageController = require('./controllers/completedPage')
+const deleteCompletedTodo = require('./controllers/deleteCompletedTodo')
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -15,44 +20,14 @@ mongoose.connect(process.env.MONGODB_URI, {
 	useUnifiedTopology: true,
 })
 
-app.get('/', async (req, res) => {
-	const todos = await Todos.find({})
-	res.render('index', { todos })
-})
+app.get('/', homePageController)
 
-app.post('/create', async (req, res) => {
-	Todos.create({ title: req.body.todo }, (err) => {
-		if (err) {
-			res.sendStatus(204)
-		}
-	})
-	res.redirect('/')
-})
+app.post('/create', createTodoController)
 
-app.post('/done', async (req, res) => {
-	Todos.findOneAndDelete({ title: req.body['todo'] }, (err, todo) => {
-		if (err) console.log(err)
-		else return
-	})
+app.post('/done', todoDoneController)
 
-	Completed.create({
-		title: req.body['todo'],
-		completedAt: Date.now(),
-	})
-	res.redirect('/')
-})
+app.get('/completed', completedPageController)
 
-app.get('/completed', async (req, res) => {
-	const completedTodos = await Completed.find({})
-	res.render('completed', { completedTodos })
-})
-
-app.post('/delete', (req, res) => {
-	Completed.findOneAndDelete({ title: req.body.todo }, (err, todo) => {
-		if (err) console.log(err)
-		else return
-	})
-	res.redirect('completed')
-})
+app.post('/delete', deleteCompletedTodo)
 
 app.listen(PORT)
