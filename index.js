@@ -26,8 +26,7 @@ app.post('/create', async (req, res) => {
 			res.sendStatus(204)
 		}
 	})
-	const todos = await Todos.find({})
-	res.render('index', { todos })
+	res.redirect('/')
 })
 
 app.post('/done', async (req, res) => {
@@ -40,14 +39,20 @@ app.post('/done', async (req, res) => {
 		title: req.body['todo'],
 		completedAt: Date.now(),
 	})
-
-	const todos = await Todos.find({})
-	res.render('index', { todos })
+	res.redirect('/')
 })
 
 app.get('/completed', async (req, res) => {
 	const completedTodos = await Completed.find({})
 	res.render('completed', { completedTodos })
+})
+
+app.post('/delete', (req, res) => {
+	Completed.findOneAndDelete({ title: req.body.todo }, (err, todo) => {
+		if (err) console.log(err)
+		else return
+	})
+	res.redirect('completed')
 })
 
 app.listen(PORT)
