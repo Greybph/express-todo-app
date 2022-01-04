@@ -1,3 +1,7 @@
+:root {
+	--secondary-color: rgb(83, 152, 255);
+}
+
 *,
 *::before,
 *::after {
@@ -7,7 +11,7 @@
 }
 
 body {
-	background-color: rgb(26, 26, 26);
+	background-color: rgba(0, 0, 0, 0.98);
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -27,7 +31,7 @@ body {
 .container h1 {
 	font-size: 4rem;
 	color: rgb(255, 255, 255);
-	text-shadow: 2px 2px 0px rgb(17, 122, 22);
+	text-shadow: 2px 2px 0px var(--secondary-color);
 	font-weight: lighter;
 	margin-bottom: 1rem;
 }
@@ -42,7 +46,7 @@ body {
 	border-radius: 5px;
 	background-color: rgb(65, 65, 65);
 	color: white;
-	border: 2px solid rgb(17, 122, 22);
+	border: 2px solid var(--secondary-color);
 }
 
 .container form #add {
@@ -52,7 +56,7 @@ body {
 	border-radius: 5px;
 	background: transparent;
 	color: white;
-	border: 2px solid rgb(17, 122, 22);
+	border: 2px solid var(--secondary-color);
 }
 
 .todos-container {
@@ -71,7 +75,6 @@ body {
 	border-radius: 10px;
 	margin: 0.3rem;
 	width: 80vw;
-	/* min-width: 470px; */
 	max-width: 900px;
 }
 
@@ -84,7 +87,7 @@ body {
 .todos-container .todo button {
 	cursor: pointer;
 	background-color: transparent;
-	border: 2px solid rgb(17, 122, 22);
+	border: 2px solid var(--secondary-color);
 	border-radius: 5px;
 	margin: 0 1rem;
 	font-size: 1rem;
@@ -96,15 +99,11 @@ body {
 
 .todos-container .todo button:hover,
 .container form #add:hover {
-	box-shadow: inset 0px 0px 0px 20px rgb(17, 122, 22);
-}
-
-.todos-container .todo button:focus {
-	box-shadow: inset 0px 0px 0px 20px rgb(17, 122, 22), 0px 0px 0px 1px rgb(17, 122, 22);
+	box-shadow: inset 0px 0px 0px 20px var(--secondary-color);
 }
 
 .todos-container .todo .delete-btn:hover {
-	box-shadow: inset 0px 0px 0px 20px red;
+	box-shadow: inset 0px 0px 0px 20px var(--secondary-color);
 }
 
 nav {
@@ -134,7 +133,7 @@ nav ul li a {
 }
 
 nav ul li .active {
-	color: rgb(22, 163, 29);
+	color: var(--secondary-color);
 }
 
 nav ul li:hover a {
@@ -149,7 +148,8 @@ nav ul li:hover a {
 
 .title-wrapper p {
 	margin-left: 0.5rem;
-	color: rgb(22, 163, 156);
+	font-size: 1.1rem;
+	color: var(--secondary-color);
 }
 
 .title-wrapper p::after {
@@ -159,5 +159,5 @@ nav ul li:hover a {
 	background-color: white;
 	position: absolute;
 	top: 0;
-	left: 65px;
+	left: 69px;
 }
