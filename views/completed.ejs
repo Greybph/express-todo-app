@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">Create</a></li>
+      <li><a class="active" href="/completed">Completed</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Completed</h1>
+    <!-- TODO add search support-->
+    <form id="create" action="/create" method="post">
+      <input name="todo" type="text" placeholder="Search for todo">
+      <button id="add" type="submit">Find</button>
+    </form>
+    <div class="todos-container"> 
+      <% completedTodos.forEach(todo => { %>
+        <form class="todo" action="/done" method="post">
+          <h2 class="todo-title"><%= todo.title %></h2>
+          <button style="border: 2px solid red;" class="check-btn" name="todo" value="<%= todo.title %>" type="submit"><i class="far fa-trash-alt"></i></button>
+      </form><br>
+    <% }) %>      
+    </div>
+  </div>
+</body>
+</html>
