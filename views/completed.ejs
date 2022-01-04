@@ -28,9 +28,9 @@
     </form>
     <div class="todos-container"> 
       <% completedTodos.forEach(todo => { %>
-        <form class="todo" action="/done" method="post">
+        <form class="todo" action="/delete" method="post">
           <h2 class="todo-title"><%= todo.title %></h2>
-          <button style="border: 2px solid red;" class="check-btn" name="todo" value="<%= todo.title %>" type="submit"><i class="far fa-trash-alt"></i></button>
+          <button style="border: 2px solid red;" class="delete-btn" name="todo" value="<%= todo.title %>" type="submit"><i class="far fa-trash-alt"></i></button>
       </form><br>
     <% }) %>      
     </div>
