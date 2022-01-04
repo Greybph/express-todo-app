@@ -2,6 +2,8 @@ const Todos = require('../models/Todos')
 const Completed = require('../models/Completed')
 
 const todoDone = async (req, res) => {
+	const date = new Date()
+
 	Todos.findOneAndDelete({ title: req.body['todo'] }, (err, todo) => {
 		if (err) console.log(err)
 		else return
@@ -9,7 +11,7 @@ const todoDone = async (req, res) => {
 
 	Completed.create({
 		title: req.body['todo'],
-		completedAt: Date.now(),
+		completedAt: date.toLocaleDateString().replace('20', ''),
 	})
 	res.redirect('/')
 }

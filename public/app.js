@@ -6,11 +6,11 @@ searchBar.addEventListener('keyup', (e) => {
 
 	todoTitles.forEach((todo) => {
 		if (!todo.textContent.toLocaleLowerCase().includes(searchQuery)) {
-			todo.parentElement.style.display = 'none'
+			todo.parentElement.parentElement.style.display = 'none'
 		}
 
 		if (todo.textContent.toLocaleLowerCase().includes(searchQuery)) {
-			todo.parentElement.style.display = 'flex'
+			todo.parentElement.parentElement.style.display = 'flex'
 		}
 	})
 })

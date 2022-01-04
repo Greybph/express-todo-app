@@ -140,3 +140,24 @@ nav ul li .active {
 nav ul li:hover a {
 	text-decoration: underline;
 }
+
+.title-wrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.title-wrapper p {
+	margin-left: 0.5rem;
+	color: rgb(22, 163, 156);
+}
+
+.title-wrapper p::after {
+	content: '';
+	width: 2px;
+	height: 60px;
+	background-color: white;
+	position: absolute;
+	top: 0;
+	left: 65px;
+}
