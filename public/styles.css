@@ -103,6 +103,10 @@ body {
 	box-shadow: inset 0px 0px 0px 20px rgb(17, 122, 22), 0px 0px 0px 1px rgb(17, 122, 22);
 }
 
+.todos-container .todo .delete-btn:hover {
+	box-shadow: inset 0px 0px 0px 20px red;
+}
+
 nav {
 	border-bottom: 1px solid rgb(65, 65, 65);
 }
