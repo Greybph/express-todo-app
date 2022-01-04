@@ -2,16 +2,15 @@ const searchBar = document.querySelector('#search-bar')
 
 searchBar.addEventListener('keyup', (e) => {
 	const todoTitles = document.querySelectorAll('.todo-title')
+	const searchQuery = e.target.value.toLowerCase()
 
 	todoTitles.forEach((todo) => {
-		if (!todo.textContent.includes(e.target.value)) {
+		if (!todo.textContent.toLocaleLowerCase().includes(searchQuery)) {
 			todo.parentElement.style.display = 'none'
 		}
 
-		if (!e.target.value) {
-			todoTitles.forEach((todo) => {
-				todo.parentElement.style.display = 'flex'
-			})
+		if (todo.textContent.toLocaleLowerCase().includes(searchQuery)) {
+			todo.parentElement.style.display = 'flex'
 		}
 	})
 })
