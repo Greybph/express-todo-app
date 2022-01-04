@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	background-color: rgb(26, 26, 26);
 	font-family: 'Poppins', sans-serif;
@@ -21,20 +29,20 @@ body {
 	color: rgb(255, 255, 255);
 	text-shadow: 2px 2px 0px rgb(17, 122, 22);
 	font-weight: lighter;
+	margin-bottom: 1rem;
 }
 
 .container form input {
 	width: 280px;
-	height: 1.2rem;
+	height: 2.4rem;
 	margin-right: 0.5rem;
-	padding: 0.5rem;
+
 	font-size: 1.4rem;
 	outline: none;
 	border-radius: 5px;
 	background-color: rgb(65, 65, 65);
 	color: white;
-	border: 1px solid rgb(255, 255, 255);
-	box-shadow: inset 0px 0px 0px 1px rgb(17, 122, 22), 0px 0px 0px 1px rgb(17, 122, 22);
+	border: 2px solid rgb(17, 122, 22);
 }
 
 .container form #add {
@@ -44,8 +52,7 @@ body {
 	border-radius: 5px;
 	background: transparent;
 	color: white;
-	border: 1px solid white;
-	box-shadow: inset 0px 0px 0px 1px rgb(17, 122, 22), 0px 0px 0px 1px rgb(17, 122, 22);
+	border: 2px solid rgb(17, 122, 22);
 }
 
 .todos-container {
@@ -77,8 +84,7 @@ body {
 .todos-container .todo button {
 	cursor: pointer;
 	background-color: transparent;
-	border: 1px solid rgb(255, 255, 255);
-	box-shadow: inset 0px 0px 0px 1px rgb(17, 122, 22), 0px 0px 0px 1px rgb(17, 122, 22);
+	border: 2px solid rgb(17, 122, 22);
 	border-radius: 5px;
 	margin: 0 1rem;
 	font-size: 1rem;
@@ -88,10 +94,45 @@ body {
 	transition: box-shadow 350ms ease;
 }
 
-.todos-container .todo button:hover {
-	box-shadow: inset 0px 0px 0px 20px rgba(17, 122, 22, 0.5);
+.todos-container .todo button:hover,
+.container form #add:hover {
+	box-shadow: inset 0px 0px 0px 20px rgb(17, 122, 22);
 }
 
 .todos-container .todo button:focus {
 	box-shadow: inset 0px 0px 0px 20px rgb(17, 122, 22), 0px 0px 0px 1px rgb(17, 122, 22);
+}
+
+nav {
+	border-bottom: 1px solid rgb(65, 65, 65);
+}
+
+nav ul {
+	display: flex;
+	justify-content: flex-start;
+}
+
+nav ul li {
+	list-style: none;
+	margin: 1rem;
+	padding: 0 1rem;
+}
+
+nav ul li:first-child {
+	margin-right: 0;
+	padding-right: 0;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 0.9rem;
+}
+
+nav ul li .active {
+	color: rgb(22, 163, 29);
+}
+
+nav ul li:hover a {
+	text-decoration: underline;
 }

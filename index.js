@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const Todos = require('./models/Todos')
+const Completed = require('./models/Completed')
 require('dotenv').config()
 const PORT = process.env.PORT || 4000
 
@@ -29,12 +30,24 @@ app.post('/create', async (req, res) => {
 	res.render('index', { todos })
 })
 
-app.post('/delete', async (req, res) => {
+app.post('/done', async (req, res) => {
 	Todos.findOneAndDelete({ title: req.body['todo'] }, (err, todo) => {
-		return
+		if (err) console.log(err)
+		else return
 	})
+
+	Completed.create({
+		title: req.body['todo'],
+		completedAt: Date.now(),
+	})
+
 	const todos = await Todos.find({})
 	res.render('index', { todos })
+})
+
+app.get('/completed', async (req, res) => {
+	const completedTodos = await Completed.find({})
+	res.render('completed', { completedTodos })
 })
 
 app.listen(PORT)

@@ -9,17 +9,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a class="active" href="/">Create</a></li>
+      <li><a class="" href="/completed">Completed</a></li>
+    </ul>
+  </nav>
   <div class="container">
     <h1>Todo App</h1>
     <form id="create" action="/create" method="post">
       <input name="todo" type="text">
-      <button id="add" type="submit">Add task</button>
+      <button id="add" type="submit">Add todo</button>
     </form>
     <div class="todos-container">
       <% todos.forEach(todo => { %>
-        <form class="todo" action="/delete" method="post">
+        <form class="todo" action="/done" method="post">
           <h2 class="todo-title"><%= todo.title %></h2>
           <button class="check-btn" name="todo" value="<%= todo.title %>" type="submit">&#10004;</button>
       </form><br>
