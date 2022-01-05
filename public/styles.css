@@ -100,7 +100,7 @@ body {
 .todos-container .todo button:hover,
 .container form #add:hover {
 	color: black;
-	box-shadow: inset 0px 0px 0px 20px var(--secondary-color);
+	box-shadow: inset 0px 0px 20px 20px var(--secondary-color);
 }
 
 nav {
